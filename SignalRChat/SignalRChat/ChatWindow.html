@@ -4,31 +4,23 @@
     <title></title>
 </head>
 <body>
-    <!--Add reference to the JQuery file-->
     <script src="Scripts/jquery-1.6.4.min.js"></script>
-    <!-- Add reference to the minified version of the SignarR client library -->
     <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
-    <!-- Add reference to the auto-generated proxy file -->
     <script src="signalr/hubs"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             var _name = window.prompt("Please Enter your name");
             $("#spnName").text(_name);
             $('#txtMsg').val('');
-
-            //Get proxy instance using the auto-generated proxy class
             var chatProxy = $.connection.signalRChatHub;
-            // Bind the btnClick event when connection to the hub is started
             $.connection.hub.start().done(function () {
                 $("#btnSend").click(function () {
-                    // Send Message to the Hub using the proxy instance
 
                     chatProxy.server.broadCastMessage($("#spnName").text(), $("#txtMsg").val());
                     $('#txtMsg').val('').focus();
                 })
             })
-            //Callback function which the hub will call when it has finished processing,
-            // is attached to the proxy 
             chatProxy.client.receiveMessage = function (msgFrom, msg) {
                 $('#divChat').append('<li><strong>' + msgFrom
                     + '</strong>:&nbsp;&nbsp;' + msg + '</li>')
@@ -36,14 +28,14 @@
         });
     </script>
 
-    <div style="width: 50%; border: solid 1px Red; height: 40px">
+    <div style="width: 50%; border: solid 1px #00ff21; height: 40px">
         <h3 style="margin: 10px 0px 0px 10px">
             <span id="spnName"></span>
         </h3>
     </div>
-    <div style="width: 50%; border: solid 1px Red; height: 100px">
+    <div style="width: 50%; border: solid 1px #b6ff00; height: 100px">
         <div style="height: 70%" id="divChat"></div>
-        <div style="border: dashed 1px Black;">
+        <div style="border: dashed 1px #0026ff;">
             <div style="float: left; width: 70%; padding: 4px">
                 <input type="text" style="width: 100%" id="txtMsg" />
             </div>
