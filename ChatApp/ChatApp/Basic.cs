@@ -15,7 +15,7 @@ namespace ChatApp
         }
         public class ChatHub : Hub
         {
-            public void send(string name,string message)
+            public void Send(string name,string message)
             {
                 Clients.All.broadcastMessage(name, message);
             }
