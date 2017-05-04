@@ -1,9 +1,14 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>ChatRoom</title>
 </head>
 <body>
+    <style>
+        body {background-image:url("19185_en_1.jfif") }
+
+
+    </style>
     <script src="Scripts/jquery-1.6.4.min.js"></script>
     <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
     <script src="signalr/hubs"></script>
@@ -28,14 +33,14 @@
         });
     </script>
 
-    <div style="width: 50%; border: solid 1px #00ff21; height: 40px">
+    <div style="width: 50%; border: solid 3px #fd0bd3; height: 40px">
         <h3 style="margin: 10px 0px 0px 10px">
             <span id="spnName"></span>
         </h3>
     </div>
-    <div style="width: 50%; border: solid 1px #b6ff00; height: 100px">
+    <div style="width: 50%; border: solid 3px #00ff90; height: 100px">
         <div style="height: 70%" id="divChat"></div>
-        <div style="border: dashed 1px #0026ff;">
+        <div style="border: dashed 3px #0026ff;">
             <div style="float: left; width: 70%; padding: 4px">
                 <input type="text" style="width: 100%" id="txtMsg" />
             </div>
