@@ -22,12 +22,13 @@
             $.connection.hub.start().done(function () {
                 $("#btnSend").click(function () {
                     // Send Message to the Hub using the proxy instance
+
                     chatProxy.server.broadCastMessage($("#spnName").text(), $("#txtMsg").val());
                     $('#txtMsg').val('').focus();
                 })
             })
             //Callback function which the hub will call when it has finished processing,
-            // is attached to the proxy
+            // is attached to the proxy 
             chatProxy.client.receiveMessage = function (msgFrom, msg) {
                 $('#divChat').append('<li><strong>' + msgFrom
                     + '</strong>:&nbsp;&nbsp;' + msg + '</li>')
@@ -51,6 +52,6 @@
             </div>
         </div>
     </div>
-
+     
 </body>
 </html>
